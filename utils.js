@@ -6,6 +6,7 @@ const cwdPath = (file) =>
 
 const getConfig = () => {
   const packageJsonFilename = cwdPath('package.json');
+  if (!fs.existsSync(packageJsonFilename)) return {};
   const packageJson = require(packageJsonFilename);
   return packageJson['geolite2'] || {};
 };
